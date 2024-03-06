@@ -31,7 +31,7 @@ jobs:
           ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
 
       - name: "Terraform Apply"
-        if: github.ref == 'refs/heads/azure' # Убедитесь, что apply выполняется только для ветки azure
+        if: github.ref == 'refs/heads/azure' 
         run: terraform apply -auto-approve
         env:
           ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
