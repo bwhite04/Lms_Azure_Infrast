@@ -1,4 +1,3 @@
-# variables.tflocals
 
 # Create resource group
 resource "azurerm_resource_group" "lms" {
@@ -83,13 +82,13 @@ resource "azurerm_network_interface_security_group_association" "lms-nsg-assoc" 
   network_security_group_id = azurerm_network_security_group.lms_terraform_nsg.id
 }
 
-# Создание (и отображение) SSH-ключа
+# Creating (and displaying) an SSH key
 resource "tls_private_key" "secureadmin_ssh" {
   algorithm = "RSA"
   rsa_bits  = 4096
 }
 
-# Создание виртуальной машины
+# СCreating a virtual machine
 resource "azurerm_linux_virtual_machine" "lms_terraform_vm" {
   name                  = "${var.service_name}-VM"
   location              = azurerm_resource_group.lms.location
@@ -106,7 +105,7 @@ resource "azurerm_linux_virtual_machine" "lms_terraform_vm" {
   source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
-    sku       = "18.04-LTS"
+    sku       = "22.04-LTS"
     version   = "latest"
   }
 
@@ -118,7 +117,7 @@ resource "azurerm_linux_virtual_machine" "lms_terraform_vm" {
   
   
   provisioner "local-exec" {
-    command = "sleep 180"  # Задержка в 60 секунд
+    command = "sleep 100"  # A delay of 100 seconds
   }
   
   
