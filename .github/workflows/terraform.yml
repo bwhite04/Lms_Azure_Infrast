@@ -12,12 +12,12 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v3 # Обновлено до последней версии
+        uses: actions/checkout@v3
 
       - name: "Setup Terraform"
-        uses: hashicorp/setup-terraform@v2 # Обновлено до последней версии
+        uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: "1.1.0" # Обновлено до более новой версии
+          terraform_version: "1.1.0" 
 
       - name: "Terraform Init"
         run: terraform init
@@ -31,17 +31,16 @@ jobs:
           ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
 
       - name: "Terraform Apply"
-        if: github.ref == 'refs/heads/testing' # Изменено условие на соответствие текущей ветке
+        if: github.ref == 'refs/heads/testing'
         run: terraform apply -auto-approve
         env:
           ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
           ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-
-      # Этот блок закомментирован, если вам нужно включить удаление ресурсов, убедитесь, что это действие безопасно для вашей инфраструктуры.
+     
       # - name: "Terraform Destroy"
-      #   if: github.ref == 'refs/heads/testing' # Изменено условие на соответствие текущей ветке
+      #   if: github.ref == 'refs/heads/testing' 
       #   run: terraform destroy -auto-approve
       #   env:
       #     ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
