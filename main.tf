@@ -105,7 +105,7 @@ resource "azurerm_linux_virtual_machine" "lms_terraform_vm" {
   source_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
-    sku       = "22.04-LTS"
+    sku       = "22_04-lts-gen2"
     version   = "latest"
   }
 
