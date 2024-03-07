@@ -1,5 +1,5 @@
 
-# Create resource group
+# Create resource group1
 resource "azurerm_resource_group" "lms" {
   location = var.resource_group_location
   name     = "${var.service_name}-LMS"
