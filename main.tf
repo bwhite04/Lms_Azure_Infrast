@@ -117,7 +117,7 @@ resource "azurerm_linux_virtual_machine" "lms_terraform_vm" {
   
   
   provisioner "local-exec" {
-    command = "sleep 100"  # A delay of 100 seconds
+    command = "sleep 100"  # A delay of 100 seconds 
   }
   
   
