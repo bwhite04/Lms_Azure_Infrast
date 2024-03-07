@@ -1,23 +1,23 @@
 variable "resource_group_location" {
-  description = "Місце розташування ресурсної групи"
+  description = "Location of the resource group"
   type        = string
   default     = "UK South"  
 }
 
 variable "service_name" {
-  description = "Назва сервісу"
+  description = "Service name"
   type        = string
   default     = "Frape-terraform"  
 }
 
 variable "admin_username" {
-  description = "Ім'я адміністратора для SSH"
+  description = "SSH administrator username"
   type        = string
   default = "secrets.AZURE_USER" 
 }
 
 variable "admin_password" {
-  description = "Пароль адміністратора для SSH"
+  description = "SSH administrator password"
   type        = string
   default = "secrets.AZURE_PASS_USER" 
 }
